@@ -15,7 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "gen:icons": "pnpm exec svgr --out-dir dist --typescript --template ./template.js icons",
     "tsdx": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
-    "build": "pnpm clean && pnpm svgr && pnpm tsx index.ts && pnpm tsup",
+    "build": "pnpm clean && pnpm svgr && pnpm tsx ./src/index.ts && pnpm tsup",
     "clean": "pnpm rimraf ./.dot-tsx && pnpm rimraf ./dist",
     "svgr=1": "svgr ./icons -d ./src/components/icons --typescript --svg-props className=\"\" --svgo-config ./svgorc.json",
     "svgr": "svgr ./src/icons -d ./.dot-tsx/icons --typescript --svgo-config ./svgorc.json --template ./template.js"
