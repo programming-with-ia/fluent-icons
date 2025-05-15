@@ -1,0 +1,119 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+" # Standard versions (v1.2.3)
+      - "v[0-9]+.[0-9]+.[0-9]+-*" # Prereleases (v1.2.3-alpha.1)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for proper version tagging
+
+      # 2. Setup pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      # 3. Setup Node.js with caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prod false
+
+      # 5. Verify package version matches git tag
+      - name: Verify version consistency
+        id: version-check
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          GIT_TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          if [ "$PACKAGE_VERSION" != "$GIT_TAG_VERSION" ]; then
+            echo "::error::Version mismatch: package.json ($PACKAGE_VERSION) vs git tag ($GIT_TAG_VERSION)"
+            exit 1
+          fi
+          echo "Versions match ($PACKAGE_VERSION)"
+
+      # 6. Build the package
+      - name: Build package
+        run: pnpm build
+
+      # 7. Determine npm distribution tag
+      - name: Extract npm tag from git tag
+        id: get_tag
+        run: |
+          GIT_TAG="${GITHUB_REF#refs/tags/v}"
+          echo "Git tag: $GIT_TAG"
+
+          if [[ "$GIT_TAG" =~ -alpha ]]; then
+            echo "npm_tag=alpha" >> $GITHUB_OUTPUT
+          elif [[ "$GIT_TAG" =~ -beta ]]; then
+            echo "npm_tag=beta" >> $GITHUB_OUTPUT
+          elif [[ "$GIT_TAG" =~ -rc ]]; then
+            echo "npm_tag=rc" >> $GITHUB_OUTPUT
+          else
+            echo "npm_tag=latest" >> $GITHUB_OUTPUT
+          fi
+          echo "Using npm tag: ${{ steps.get_tag.outputs.npm_tag }}"
+
+      # 8. Dry run publish
+      - name: Dry run publish
+        run: |
+          pnpm publish --access public \
+          --tag ${{ steps.get_tag.outputs.npm_tag }} \
+          --dry-run
+
+      # 9. Actual publish
+      - name: Publish to npm
+        run: |
+          pnpm publish --access public \
+          --tag ${{ steps.get_tag.outputs.npm_tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
+      # 10. Push dot-tsx
+      - name: Push build output and generated README to branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          BRANCH="dot-tsx"
+
+          # Checkout or create the branch from current commit
+          git checkout -B $BRANCH
+
+          # Add the build folder and README.md
+          git add -f dist README.md
+
+          # Commit changes (skip if no changes)
+          git commit -m "chore: build output and generated README for $GITHUB_REF_NAME" || echo "No changes to commit"
+
+          # Push branch forcibly
+          git push origin $BRANCH --force
+
+      # 11. Post-publish verification
+      # - name: Verify published package
+      #   run: |
+      #     npm view ${{ env.npm_package_name }}@${{ env.npm_package_version }} \
+      #     --json | jq 'del(.time,.versions)'
+      #   env:
+      #     npm_package_name: $(node -p "require('./package.json').name")
+      #     npm_package_version: $(node -p "require('./package.json').version")

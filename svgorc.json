@@ -1,0 +1,52 @@
+{
+  "plugins": [
+    {
+      "name": "preset-default",
+      "params": {
+        "overrides": {
+          "removeViewBox": false,
+          "cleanupIds": false,
+          "inlineStyles": {
+            "onlyMatchedOnce": false
+          }
+        }
+      }
+    },
+    { "name": "removeDoctype" },
+    { "name": "removeXMLProcInst" },
+    { "name": "removeComments" },
+    { "name": "removeMetadata" },
+    { "name": "removeEditorsNSData" },
+    { "name": "cleanupAttrs" },
+    { "name": "minifyStyles" },
+    { "name": "convertStyleToAttrs" },
+    { "name": "removeUselessDefs" },
+    { "name": "cleanupNumericValues" },
+    { "name": "convertColors" },
+    { "name": "removeUnknownsAndDefaults" },
+    { "name": "removeNonInheritableGroupAttrs" },
+    { "name": "removeUselessStrokeAndFill" },
+    { "name": "cleanupEnableBackground" },
+    { "name": "removeHiddenElems" },
+    { "name": "removeEmptyText" },
+    { "name": "convertShapeToPath" },
+    { "name": "moveElemsAttrsToGroup" },
+    { "name": "moveGroupAttrsToElems" },
+    { "name": "collapseGroups" },
+    { "name": "convertTransform" },
+    { "name": "removeEmptyAttrs" },
+    { "name": "removeEmptyContainers" },
+    { "name": "mergePaths" },
+    { "name": "removeUnusedNS" },
+    { "name": "removeXMLNS", "params": { "active": false } },
+    { "name": "removeRasterImages", "params": { "active": false } },
+    { "name": "cleanupListOfValues", "params": { "active": false } },
+    { "name": "convertPathData", "params": { "active": false } },
+    { "name": "sortAttrs", "params": { "active": false } },
+    { "name": "removeDimensions", "params": { "active": false } },
+    { "name": "removeStyleElement", "params": { "active": false } },
+    { "name": "removeScriptElement", "params": { "active": false } },
+    { "name": "removeTitle" },
+    { "name": "removeDesc" }
+  ]
+}

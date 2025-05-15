@@ -1,0 +1,44 @@
+{
+  "name": "@ofluent/react-icons-test",
+  "version": "1.0.0",
+  "description": "React icon components generated from Fluent UI SVGs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen:icons": "pnpm exec svgr --out-dir dist --typescript --template ./template.js icons",
+    "tsdx": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
+    "build": "pnpm clean && pnpm svgr && pnpm tsx index.ts && pnpm tsup",
+    "clean": "pnpm rimraf ./.dot-tsx && pnpm rimraf ./dist",
+    "svgr=1": "svgr ./icons -d ./src/components/icons --typescript --svg-props className=\"\" --svgo-config ./svgorc.json",
+    "svgr": "svgr ./src/icons -d ./.dot-tsx/icons --typescript --svgo-config ./svgorc.json --template ./template.js"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@svgr/cli": "^8.1.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/react": "^19.1.4",
+    "fs-extra": "^11.3.0",
+    "react": "^19.1.0",
+    "rimraf": "^6.0.1",
+    "tsdx": "^0.14.1",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
