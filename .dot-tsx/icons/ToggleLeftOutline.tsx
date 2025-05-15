@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+export default function ToggleLeftOutline({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M7.25 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5"
+      />
+      <path
+        fill="currentColor"
+        d="M22 12a5 5 0 0 0-5-5H7a5 5 0 0 0 0 10h10a5 5 0 0 0 5-5m-5-3.5a3.5 3.5 0 1 1 0 7H7a3.5 3.5 0 1 1 0-7z"
+      />
+    </svg>
+  );
+}

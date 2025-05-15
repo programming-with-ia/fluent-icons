@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+export default function CutOutline({ ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M12.14 9.341v.002L7.37 2.328a.75.75 0 1 0-1.24.844l5.13 7.545-2.395 3.743a4 4 0 1 0 1.178.943l2.135-3.337 2.065 3.036a4 4 0 1 0 1.261-.813l-2.447-3.597.002-.002zm-7.64 8.66a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0m10 0a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0"
+      />
+      <path
+        fill="currentColor"
+        d="m13.938 9.316 3.943-6.162a.75.75 0 1 0-1.263-.808L13.02 7.968z"
+      />
+    </svg>
+  );
+}

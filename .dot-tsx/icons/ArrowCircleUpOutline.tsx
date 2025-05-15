@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+export default function ArrowCircleUpOutline({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="m7.47 12.281.084.073a.75.75 0 0 0 .977-.073l2.72-2.72v6.69l.006.102a.75.75 0 0 0 .743.648l.102-.006a.75.75 0 0 0 .648-.744V9.56l2.72 2.722.085.072a.75.75 0 0 0 .977-1.133l-4-4.001-.085-.073a.75.75 0 0 0-.976.073l-4.001 4-.073.085a.75.75 0 0 0 .073.976"
+      />
+      <path
+        fill="currentColor"
+        d="M22 12.001c0-5.523-4.476-10-10-10-5.522 0-10 4.477-10 10s4.478 10 10 10c5.524 0 10-4.477 10-10m-18.5 0a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0"
+      />
+    </svg>
+  );
+}

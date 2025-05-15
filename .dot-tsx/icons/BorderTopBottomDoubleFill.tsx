@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+export default function BorderTopBottomDoubleFill({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M3 6a1 1 0 0 0 2 0 1 1 0 0 1 1-1h12a1 1 0 0 1 1 1 1 1 0 1 0 2 0 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3m2 5a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0zm-1 7a1 1 0 1 1 0-2h16a1 1 0 1 1 0 2zm0 3a1 1 0 1 1 0-2h16a1 1 0 1 1 0 2zm16-11a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1"
+      />
+    </svg>
+  );
+}

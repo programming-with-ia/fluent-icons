@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+export default function TextWrapFill({ ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M3 5a1 1 0 0 0 0 2h18a1 1 0 1 0 0-2zm0 6a1 1 0 1 0 0 2h16.25a2 2 0 1 1 0 4h-3.836l.293-.293a1 1 0 0 0-1.414-1.414l-2 2a1 1 0 0 0 0 1.414l2 2a1 1 0 0 0 1.414-1.414L15.414 19h3.836a4 4 0 0 0 0-8z"
+      />
+      <path
+        fill="currentColor"
+        d="M2 18a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1"
+      />
+    </svg>
+  );
+}

@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+export default function SearchInfoOutline({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M10 9a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 9m0-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+      />
+      <path
+        fill="currentColor"
+        d="M10 2.75a7.25 7.25 0 0 1 5.63 11.819l4.9 4.9a.75.75 0 0 1-.976 1.134l-.084-.073-4.901-4.9A7.25 7.25 0 1 1 10 2.75m0 1.5a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5"
+      />
+    </svg>
+  );
+}

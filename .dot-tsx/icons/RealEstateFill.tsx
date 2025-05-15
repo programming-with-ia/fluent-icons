@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+export default function RealEstateFill({ ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M3 4a1 1 0 1 1 2 0h16a1 1 0 1 1 0 2H5v15.5a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
+      />
+      <path
+        fill="currentColor"
+        d="M6 7.75A.75.75 0 0 1 6.75 7h13.5a.75.75 0 0 1 .75.75v8.5A2.75 2.75 0 0 1 18.25 19h-9.5A2.75 2.75 0 0 1 6 16.25zm4 4.71v3.04a.5.5 0 0 0 .5.5h1.75a.25.25 0 0 0 .25-.25V14.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1.25c0 .138.112.25.25.25h1.75a.5.5 0 0 0 .5-.5v-3.04a1 1 0 0 0-.35-.76l-2.824-2.42a.5.5 0 0 0-.65 0l-2.827 2.42a1 1 0 0 0-.349.759Z"
+      />
+    </svg>
+  );
+}

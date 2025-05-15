@@ -1,0 +1,11 @@
+import type { SVGProps } from "react";
+export default function MergeFill({ ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M7.586 8.004H4a1 1 0 0 1 0-2h4a1 1 0 0 1 .707.293L13.414 11h5.17l-3.29-3.289a1 1 0 0 1 1.413-1.414l5 4.996a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L18.586 13h-5.172l-4.707 4.707A1 1 0 0 1 8 18H4a1 1 0 0 1 0-2h3.586l4-4z"
+      />
+    </svg>
+  );
+}

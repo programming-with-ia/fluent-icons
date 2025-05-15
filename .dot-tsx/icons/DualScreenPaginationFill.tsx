@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+export default function DualScreenPaginationFill({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M20.245 4.003c.967 0 1.75.784 1.75 1.75v12.495a1.75 1.75 0 0 1-1.75 1.75h-7.247q-.13 0-.256-.018V4.022q.125-.018.256-.019zm-9.247-.002a2 2 0 0 1 .245.017V19.98a2 2 0 0 1-.245.017H3.75A1.75 1.75 0 0 1 2 18.246V5.751c0-.967.784-1.75 1.75-1.75zM17.625 16.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5m2.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5m-5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5"
+      />
+    </svg>
+  );
+}

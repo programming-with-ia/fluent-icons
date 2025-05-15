@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+export default function ComposeFill({ ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="m11.957 13.457 9.75-9.75a1 1 0 0 0-1.414-1.414l-9.75 9.75-.293 1.707z"
+      />
+      <path
+        fill="currentColor"
+        d="M6.5 3A3.5 3.5 0 0 0 3 6.5v11A3.5 3.5 0 0 0 6.5 21h11a3.5 3.5 0 0 0 3.5-3.5V10a1 1 0 1 0-2 0v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17.5v-11A1.5 1.5 0 0 1 6.5 5H14a1 1 0 1 0 0-2z"
+      />
+    </svg>
+  );
+}

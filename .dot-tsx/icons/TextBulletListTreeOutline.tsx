@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+export default function TextBulletListTreeOutline({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M7.25 16a1.25 1.25 0 1 1 0 2.499 1.25 1.25 0 0 1 0-2.499m3.5.5h10.5a.75.75 0 0 1 .102 1.493L21.25 18h-10.5a.75.75 0 0 1-.102-1.493zM3.25 11a1.25 1.25 0 1 1 0 2.499 1.25 1.25 0 0 1 0-2.499m3.5.5h14.5a.75.75 0 0 1 .102 1.493L21.25 13H6.75a.75.75 0 0 1-.102-1.493zM3.25 6a1.25 1.25 0 1 1 0 2.499A1.25 1.25 0 0 1 3.25 6m3.5.5h14.5a.75.75 0 0 1 .102 1.493L21.25 8H6.75a.75.75 0 0 1-.102-1.493z"
+      />
+    </svg>
+  );
+}
