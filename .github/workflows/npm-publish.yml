@@ -100,13 +100,14 @@ jobs:
           git checkout -B $BRANCH
 
           # Add the build folder and README.md
-          git add -f dist README.md
+          git add -f .dot-tsx README.md
 
           # Commit changes (skip if no changes)
           git commit -m "chore: build output and generated README for $GITHUB_REF_NAME" || echo "No changes to commit"
 
           # Push branch forcibly
-          git push origin $BRANCH --force
+          # git push origin $BRANCH --force
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} $BRANCH --force
 
       # 11. Post-publish verification
       # - name: Verify published package
