@@ -76,18 +76,17 @@ jobs:
       # 8. Dry run publish
       - name: Dry run publish
         run: |
-          pnpm publish --access public \
+          pnpm publish --no-git-checks --access public \
           --tag ${{ steps.get_tag.outputs.npm_tag }} \
           --dry-run
 
       # 9. Actual publish
       - name: Publish to npm
         run: |
-          pnpm publish --access public \
+          pnpm publish --no-git-checks --access public \
           --tag ${{ steps.get_tag.outputs.npm_tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
 
       # 10. Push dot-tsx
       - name: Push build output and generated README to branch

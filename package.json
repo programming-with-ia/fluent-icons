@@ -1,6 +1,6 @@
 {
   "name": "@ofluent/react-icons-test",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React icon components generated from Fluent UI SVGs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
